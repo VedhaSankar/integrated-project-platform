@@ -1,17 +1,29 @@
-from flask import Flask, render_template
+from crypt import methods
+import re
+from flask import Flask, render_template, request
+
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def start():
 
     return render_template('index.html')
 
-@app.route('/home')
-def start():
+@app.route('/login', methods=['GET','POST'])
+def login():
 
-    return render_template('home.html')
+    uname = request.values.get('uname')
+    psw = request.values.get('psw')
+    login_type = request.values.get('teacher')
+    print (login_type)
+    # if uname == 'admin' and psw == 'admin':
+    #     return render_template('login.html')
 
+
+    print(uname, psw)
+
+    return render_template('index.html')
 
 
 @app.route('/ping')
