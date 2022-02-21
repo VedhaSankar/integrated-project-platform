@@ -1,9 +1,13 @@
-from crypt import methods
-import re
 from flask import Flask, render_template, request
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 app = Flask(__name__)
+
+ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME')
+ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD')
 
 @app.route('/', methods=['GET'])
 def start():
@@ -15,15 +19,13 @@ def login():
 
     uname = request.values.get('uname')
     psw = request.values.get('psw')
-    login_type = request.values.get('teacher')
-    print (login_type)
-    # if uname == 'admin' and psw == 'admin':
-    #     return render_template('login.html')
+    login_type = request.form.getlist('checkbox')
 
+    if uname == ADMIN_USERNAME and psw == ADMIN_PASSWORD:
+        return render_template('home.html')
 
-    print(uname, psw)
-
-    return render_template('index.html')
+    else:
+        return render_template('index.html', error='Invalid username or password')
 
 
 @app.route('/ping')
