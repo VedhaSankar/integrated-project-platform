@@ -14,8 +14,8 @@ def start():
 
     return render_template('index.html')
 
-@app.route('/login', methods=['GET','POST'])
-def login():
+@app.route('/home', methods=['GET','POST'])
+def home():
 
     uname = request.values.get('uname')
     psw = request.values.get('psw')
