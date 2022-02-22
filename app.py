@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect
 from dotenv import load_dotenv
 import os
 from werkzeug.utils import secure_filename
@@ -29,36 +29,23 @@ def start():
 
     return render_template('index.html')
 
-# @app.route('/home', methods=['GET','POST'])
-# def home():
-
-#     uname = request.values.get('uname')
-#     psw = request.values.get('psw')
-#     login_type = request.form.getlist('checkbox')
-
-#     if request.method == 'POST':
-#         f = request.files['file']
-#         filename = secure_filename(f.filename)
-
-#         f.save(app.config['UPLOAD_FOLDER'] + filename)
-
-#         file = open(app.config['UPLOAD_FOLDER'] + filename,"r")
-#         content = file.read()
-
-
 @app.route('/home', methods = ['GET', 'POST'])
 def save_file():
     if request.method == 'POST':
-        f = request.files['file']
-        filename = secure_filename(f.filename)
+        if 'files[]' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
 
-        f.save(app.config['UPLOAD_FOLDER'] + filename)
+        files = request.files.getlist('files[]')
 
-        file = open(app.config['UPLOAD_FOLDER'] + filename,"r")
-        content = file.read()
+        for file in files:
+            if file:
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
         
-        
-    return render_template('home.html', content=content) 
+    return render_template('home.html') 
+
 
 @app.route('/ping')
 def ping():
