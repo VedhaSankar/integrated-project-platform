@@ -6,8 +6,9 @@ load_dotenv()
 
 app = Flask(__name__)
 
-ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME')
-ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD')
+ADMIN_USERNAME  = os.environ.get('ADMIN_USERNAME')
+ADMIN_PASSWORD  = os.environ.get('ADMIN_PASSWORD')
+PORT            = os.environ.get('PORT')
 
 @app.route('/', methods=['GET'])
 def start():
@@ -38,4 +39,4 @@ def ping():
 
 
 if __name__== "__main__":
-    app.run(host = "0.0.0.0", debug = True, port = 5003)
+    app.run(host = "0.0.0.0", debug = True, port = PORT)
