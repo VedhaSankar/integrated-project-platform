@@ -12,28 +12,41 @@ ADMIN_PASSWORD  = os.environ.get('ADMIN_PASSWORD')
 PORT            = os.environ.get('PORT')
 app.config["UPLOAD_FOLDER"] = "static/"
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def start():
+
+    if request.method == 'POST':
+
+        uname = request.values.get('uname')
+        psw = request.values.get('psw')
+        login_type = request.form.getlist('checkbox')
+
+        if uname == ADMIN_USERNAME and psw == ADMIN_PASSWORD:
+                return render_template('home.html')
+
+        else:
+            return render_template('index.html', error='Invalid username or password')
 
     return render_template('index.html')
 
-@app.route('/home', methods=['GET','POST'])
-def home():
+# @app.route('/home', methods=['GET','POST'])
+# def home():
 
-    uname = request.values.get('uname')
-    psw = request.values.get('psw')
-    login_type = request.form.getlist('checkbox')
+#     uname = request.values.get('uname')
+#     psw = request.values.get('psw')
+#     login_type = request.form.getlist('checkbox')
+
+#     if request.method == 'POST':
+#         f = request.files['file']
+#         filename = secure_filename(f.filename)
+
+#         f.save(app.config['UPLOAD_FOLDER'] + filename)
+
+#         file = open(app.config['UPLOAD_FOLDER'] + filename,"r")
+#         content = file.read()
 
 
-    if uname == ADMIN_USERNAME and psw == ADMIN_PASSWORD:
-        return render_template('home.html')
-
-    else:
-        return render_template('index.html', error='Invalid username or password')
-
-
-
-@app.route('/upload', methods = ['GET', 'POST'])
+@app.route('/home', methods = ['GET', 'POST'])
 def save_file():
     if request.method == 'POST':
         f = request.files['file']
@@ -45,7 +58,7 @@ def save_file():
         content = file.read()
         
         
-    return render_template('upload.html', content=content) 
+    return render_template('home.html', content=content) 
 
 @app.route('/ping')
 def ping():

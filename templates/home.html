@@ -12,8 +12,9 @@
     This is the homepage
     <br><br>
 
-    <form action="/upload">
-        <button>Upload</button>
+    <form action="/home" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <input type="submit" value="Submit" />
     </form>
 
 </body>
