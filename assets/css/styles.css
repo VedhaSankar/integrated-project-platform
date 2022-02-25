@@ -548,6 +548,59 @@ input {
   right: 0;
 }
 
+/*=============== SEARCH ===============*/
+/* 
+body {
+  padding-top: 7px;
+} */
+
+.search-container {
+  width: 400px;
+  display: block;
+  margin-top: 5px;
+  padding-top: 7px;
+  
+}
+
+input#search-bar {
+  margin: 0 auto;
+  width: 90%;
+  height: 45px;
+  padding: 0 20px;
+  padding-bottom:30px;
+  margin-top:20px;
+  padding-top:40px;
+  font-size: 1rem;
+  border: 1px solid #D0CFCE;
+  outline: none;
+}
+input#search-bar:focus {
+  border: 1px solid #008ABF;
+  transition: 0.35s ease;
+  color: #008ABF;
+}
+input#search-bar:focus::-webkit-input-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0;
+}
+input#search-bar:focus::-moz-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0;
+}
+input#search-bar:focus:-ms-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0;
+}
+
+.search-icon {
+  position: relative;
+  float: right;
+  width: 75px;
+  height: 75px;
+  top: -40px;
+  right: -45px;
+}
+
 /*=============== PLACES ===============*/
 .place__card,
 .place__img {
