@@ -555,8 +555,10 @@ body {
 } */
 
 .search-container {
-  width: 400px;
+  width: 350px;
+  height : 20px;
   display: block;
+  margin: 80px 0;
   margin-top: 5px;
   padding-top: 7px;
   
@@ -565,14 +567,18 @@ body {
 input#search-bar {
   margin: 0 auto;
   width: 90%;
-  height: 45px;
+  height: 25px;
   padding: 0 20px;
   padding-bottom:30px;
   margin-top:20px;
-  padding-top:40px;
+  padding-top:15px;
   font-size: 1rem;
   border: 1px solid #D0CFCE;
   outline: none;
+  border-top-left-radius:25px;  
+  border-top-right-radius:25px;  
+  border-bottom-right-radius:25px;  
+  border-bottom-left-radius:25px; 
 }
 input#search-bar:focus {
   border: 1px solid #008ABF;
@@ -597,8 +603,9 @@ input#search-bar:focus:-ms-placeholder {
   float: right;
   width: 75px;
   height: 75px;
-  top: -40px;
-  right: -45px;
+  top: -60px;
+  right: -35px;
+  color:aqua
 }
 
 /*=============== PLACES ===============*/
