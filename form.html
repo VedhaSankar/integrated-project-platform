@@ -302,7 +302,7 @@
             position: relative;
             display: inline-block;
             padding-left: 2rem;
-            transition: background 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+            transition: background 0.3s white;
         }
 
         .my-form input[type="checkbox"]+label::before,
@@ -387,10 +387,17 @@
                         <option>Others</option>
                     </select>
                 </li>
+                
                 <li>
                     <div class="grid grid-2">
                         <input type="text" placeholder="Name" required>
                         <input type="text" placeholder="Surname" required>
+                    </div>
+                </li>
+                <li>
+                    <div class="grid grid-2">
+                        <input type="text" placeholder="Project Title" required>
+                        <input type="text" placeholder="Project ID" required>
                     </div>
                 </li>
                 <li>
