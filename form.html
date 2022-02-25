@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /* UPLOADER */
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
         @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
@@ -92,10 +93,17 @@
             padding: 12px 20px;
             border-radius: 4px;
         }
+
+        /* FORM  */
     </style>
 </head>
 
 <body>
+
+    <!-- FORM  -->
+
+    <!-- UPLOADER -->
+
     <div class="container">
         <div class="card">
             <h3>Upload Files</h3>
@@ -112,6 +120,8 @@
     </div>
 
     <script>
+        // UPLOADER
+
         const dropArea = document.querySelector(".drop_box"),
             button = dropArea.querySelector("button"),
             dragText = dropArea.querySelector("header"),
@@ -135,6 +145,9 @@
     </form>`;
             dropArea.innerHTML = filedata;
         });
+
+
+        // FORM
     </script>
 </body>
 
