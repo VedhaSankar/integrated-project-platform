@@ -604,8 +604,8 @@ input#search-bar:focus:-ms-placeholder {
   width: 75px;
   height: 75px;
   top: -60px;
-  right: -35px;
-  color:aqua
+  right: 30px;
+
 }
 
 /*=============== PLACES ===============*/
