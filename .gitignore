@@ -1,0 +1,13 @@
+# Ignore system generated files
+.vscode
+__pycache__/
+
+
+# Ignore known types
+.env
+
+# Allow
+! static/a.txt
+
+# Ignore
+static/*
