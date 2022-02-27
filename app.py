@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, flash, redirect
 from dotenv import load_dotenv
 import os
+from pymongo import MongoClient
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
+import gcp_upload
 
 load_dotenv()
 
@@ -9,8 +12,14 @@ app = Flask(__name__)
 
 ADMIN_USERNAME  = os.environ.get('ADMIN_USERNAME')
 ADMIN_PASSWORD  = os.environ.get('ADMIN_PASSWORD')
+MONGO_URI       = os.environ.get('MONGO_URI')
 PORT            = os.environ.get('PORT')
+
 app.config["UPLOAD_FOLDER"] = "static/"
+
+client = MongoClient(MONGO_URI)  
+DB_NAME = 'prohost'
+database = client[DB_NAME]
 
 @app.route('/', methods=['GET', 'POST'])
 def start():
@@ -46,8 +55,18 @@ def get_project_details():
         resource_link       = request.values.get('resource_link')
         github_link         = request.values.get('github_link')
 
-        # above details to be stored in mongo db or something like that
+        project_dict = {
+            "project_name"        : project_name,
+            "project_description" : project_description,
+            "project_tags"        : project_tags,
+            "resource_link"       : resource_link,
+            "github_link"         : github_link
+        }
 
+        collection_name = 'project_details'
+        new_collection = database[collection_name]
+        x = new_collection.insert_one(project_dict)
+        print(x)
 
         if 'files[]' not in request.files:
             flash('No file part')
@@ -59,6 +78,7 @@ def get_project_details():
             if file:
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # gcp_upload.upload_blob(filename, filename)
 
     return render_template('project_upload.html')
 
