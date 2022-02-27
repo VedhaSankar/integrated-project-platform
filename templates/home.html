@@ -12,10 +12,7 @@
     This is the homepage
     <br><br>
 
-    <form action="/home" method="POST" enctype="multipart/form-data">
-        <input type="file" name="files[]" multiple="true" autocomplete="off" required>
-        <input type="submit" value="Submit" />
-    </form>
+    <a href="{{ url_for('get_project_details') }}">Upload Project</a>
 
 </body>
 

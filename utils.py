@@ -1,42 +1,36 @@
-colleges_list = [    
-        {
-            'college_id': 1,
-            'college_name': 'Acadia University',
-        },
-        {
-            'college_id': 2,
-            'college_name': 'University of Alberta',
-        },
-        {
-            'college_id': 3,
-            'college_name': 'Bishops University',
-        },
-        {
-            'college_id': 4,
-            'college_name': 'University of British Columbia',
-        },
-        {
-            'college_id': 5,
-            'college_name': 'University of Calgary',
-        },
-        {
-            'college_id': 6,
-            'college_name': 'Dalhousie University',
-        },
-        {
-            'college_id': 7,
-            'college_name': 'University of Guelph',
-        },
-        {
-            'college_id': 8,
-            'college_name': 'Laval University',
-        },
-        {
-            'college_id': 9,
-            'college_name': 'University of Manitoba',
-        },
-        {
-            'college_id': 10,
-            'college_name': 'Memorial University of Newfoundland',
-        }
-]
+import random
+import tlogger
+
+def get_course_id(course_id):
+
+    course_dict = {
+        "course_id" : int(course_id)
+    }
+
+    course_obj = f12_course_van.find_one(course_dict)
+
+    return course_obj
+
+def get_last_course_id():
+
+    last_course_id      = f12_course_van.find().sort([('course_id', -1)]).limit(1)
+
+    try:
+        last_course_id = last_course_id[0]['course_id']
+    except Exception as err:
+        tlogger.info("error while getting last course_id : ", err)
+        last_course_id = 0
+
+    return last_course_id
+
+def get_last_course_subscriber_id():
+
+    last_course_subscriber_id      = f12_course_subscribers_van.find().sort([('course_subscriber_id', -1)]).limit(1)
+
+    try:
+        last_course_subscriber_id = last_course_subscriber_id[0]['course_subscriber_id']
+    except Exception as err:
+        tlogger.info("error while getting last course_subscriber_id : ", err)
+        last_course_subscriber_id = 0
+
+    return last_course_subscriber_id

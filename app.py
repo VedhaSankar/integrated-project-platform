@@ -30,8 +30,25 @@ def start():
     return render_template('index.html')
 
 @app.route('/home', methods = ['GET', 'POST'])
-def save_file():
+def home():
+
+    return render_template('home.html') 
+
+
+@app.route('/project', methods=['GET', 'POST'])
+def get_project_details():
+
     if request.method == 'POST':
+
+        project_name        = request.values.get('project_name')
+        project_description = request.values.get('project_description')
+        project_tags        = request.values.get('project_tags')
+        resource_link       = request.values.get('resource_link')
+        github_link         = request.values.get('github_link')
+
+        # above details to be stored in mongo db or something like that
+
+
         if 'files[]' not in request.files:
             flash('No file part')
             return redirect(request.url)
@@ -43,8 +60,7 @@ def save_file():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-        
-    return render_template('home.html') 
+    return render_template('project_upload.html')
 
 
 @app.route('/ping')
