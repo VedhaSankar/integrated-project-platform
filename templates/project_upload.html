@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Project Platform</title>
+</head>
+
+<body>
+
+    <form action="/project" method="POST" enctype="multipart/form-data">
+
+        <label for="project_name"><b>Project Name</b></label>
+        <input type="text" placeholder="Enter Project Name" name="project_name" required>
+
+        <br>
+        <br>
+
+        <label for="project_description"><b>Project Description</b></label>
+        <input type="text" placeholder="Enter Project Description" name="project_description">
+
+        <br>
+        <br>
+
+        <label for="project_tags"><b>Project Tags</b></label>
+        <input type="text" placeholder="Enter Project Tags" name="project_tags">
+
+        <br>
+        <br>
+
+        <label for="resource_link"><b>Resource Link</b></label>
+        <input type="url" placeholder="Enter Resource Link" name="resource_link">
+
+        <br>
+        <br>
+
+        <label for="github_link"><b>GitHub Link</b></label>
+        <input type="url" placeholder="Enter GitHub Link" name="github_link">
+
+        <br>
+        <br>
+
+        <label for="project_file"><b>Project File</b></label>
+        <br>
+        <br>
+        <input type="file" name="files[]" multiple="true" autocomplete="off" required>
+        <input type="submit" value="Submit" />
+    </form>
+
+</body>
+
+</html>
