@@ -374,7 +374,7 @@
                         <input type="text" placeholder="Enter Project Name" name="project_name" required label for="project_name">
                         <!-- <label for="project_name"></label> -->
 
-                        <input type="email" placeholder="Email" required label for="email">
+                        <input type="text" placeholder="Email" name='email' label for="email" required>
                         <!-- <label for="resource_link"></label> -->
 
                         <input type="url" placeholder="Enter Resource Link" name="resource_link" label for="resource_link">
@@ -400,10 +400,17 @@
                     <textarea name="project_description" placeholder="Project description:"></textarea>
                 </li>
                 <li>
+                    <input type="file" name="files[]" multiple="true" autocomplete="off">
+                    <!-- <input type="submit" value="Submit" /> -->
+                </li>
+                <li>
                     <input type="checkbox" id="terms">
                     <label for="terms">I have read and agreed with <a href="">the terms and conditions.</a></label>
                 </li>
                 <li>
+                    <input type="submit" value="Submit" />
+                </li>
+                <!-- <li>
                     <div class="grid grid-3">
                         <div class="required-msg">Required fields</div>
                         <button class="btn-grid" type="submit" disabled>
@@ -419,14 +426,15 @@
                             <span class="front">Reset</span>
                         </button>
                     </div>
-                </li>
+
+                </li> -->
             </ul>
         </div>
     </form>
 
 
     <!-- UPLOADER -->
-
+    <!-- 
     <div class="container">
         <div class="card">
             <h3>Upload Files</h3>
@@ -436,12 +444,16 @@
                 </header>
                 <label for="project_file"><b>Project File</b></label>
 
-                <input type="file" ame="files[]" multiple="true" autocomplete="off" required id="fileID" style="display:none;">
+                <input type="file" name="files[]" multiple="true" autocomplete="off" required id="fileID" style="display:none;">
                 <button class="btn">Choose File</button>
             </div>
 
         </div>
-    </div>
+        <br>
+        <br>
+        <input type="submit" value="Submit" />
+
+    </div> -->
 
     <script>
         // UPLOADER
