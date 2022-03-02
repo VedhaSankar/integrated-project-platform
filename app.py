@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, flash, redirect, session
 from dotenv import load_dotenv
 import os
 from pymongo import MongoClient
@@ -15,6 +15,8 @@ ADMIN_PASSWORD  = os.environ.get('ADMIN_PASSWORD')
 MONGO_URI       = os.environ.get('MONGO_URI')
 PORT            = os.environ.get('PORT')
 
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 app.config["UPLOAD_FOLDER"] = "static/"
 
 client = MongoClient(MONGO_URI)  
@@ -25,18 +27,18 @@ database = client[DB_NAME]
 def start():
 
     if request.method == 'POST':
-
-        uname = request.values.get('uname')
+        session['username'] = request.form['uname']
+        # uname = request.values.get('uname')
         psw = request.values.get('psw')
         login_type = request.form.getlist('checkbox')
 
-        if uname == ADMIN_USERNAME and psw == ADMIN_PASSWORD:
+        if session['username'] == ADMIN_USERNAME and psw == ADMIN_PASSWORD:
                 return render_template('home.html')
 
         else:
-            return render_template('index.html', error='Invalid username or password')
+            return render_template('login.html', error='Invalid username or password')
 
-    return render_template('index.html')
+    return render_template('login.html')
 
 @app.route('/home', methods = ['GET', 'POST'])
 def home():
@@ -51,14 +53,14 @@ def get_project_details():
 
         project_name        = request.values.get('project_name')
         project_description = request.values.get('project_description')
-        project_tags        = request.values.get('project_tags')
+        email               = request.values.get('email')
         resource_link       = request.values.get('resource_link')
         github_link         = request.values.get('github_link')
 
         project_dict = {
             "project_name"        : project_name,
             "project_description" : project_description,
-            "project_tags"        : project_tags,
+            "email"               : email,
             "resource_link"       : resource_link,
             "github_link"         : github_link
         }
@@ -80,7 +82,7 @@ def get_project_details():
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             # gcp_upload.upload_blob(filename, filename)
 
-    return render_template('project_upload.html')
+    return render_template('form.html')
 
 
 @app.route('/ping')

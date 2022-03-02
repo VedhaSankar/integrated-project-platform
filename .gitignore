@@ -8,6 +8,7 @@ __pycache__/
 
 # Allow
 ! static/a.txt
+! static/assets
 
 # Ignore
 static/*
