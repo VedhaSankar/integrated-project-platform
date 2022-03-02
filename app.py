@@ -15,6 +15,7 @@ ADMIN_PASSWORD  = os.environ.get('ADMIN_PASSWORD')
 MONGO_URI       = os.environ.get('MONGO_URI')
 PORT            = os.environ.get('PORT')
 
+
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 app.config["UPLOAD_FOLDER"] = "static/"
@@ -80,7 +81,7 @@ def get_project_details():
             if file:
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            # gcp_upload.upload_blob(filename, filename)
+            gcp_upload.upload_blob(f'static/{filename}', f'project/{filename}')
 
     return render_template('form.html')
 
