@@ -5,6 +5,8 @@ from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 import gcp_upload
+from utils import get_prev_id
+
 
 load_dotenv()
 
@@ -58,7 +60,10 @@ def get_project_details():
         resource_link       = request.values.get('resource_link')
         github_link         = request.values.get('github_link')
 
+        current_id = get_prev_id() + 1
+
         project_dict = {
+            '_id'                 : current_id,
             "project_name"        : project_name,
             "project_description" : project_description,
             "email"               : email,
@@ -82,8 +87,16 @@ def get_project_details():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             gcp_upload.upload_blob(f'static/{filename}', f'project/{filename}')
+            print("files uploaded")
 
     return render_template('form.html')
+
+@app.route('/view-all', methods = ['GET', 'POST'])
+def view_all_projects():
+
+
+
+    return render_template('view_all.html') 
 
 
 @app.route('/ping')
