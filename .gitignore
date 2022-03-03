@@ -11,3 +11,4 @@ __pycache__/
 
 # Ignore
 prohost_sa.json
+uploads/*
