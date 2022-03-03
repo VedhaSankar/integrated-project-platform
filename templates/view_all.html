@@ -22,7 +22,7 @@
         }
 
         .tbl-header {
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: #151D3B;
         }
 
         .tbl-content {
@@ -35,6 +35,7 @@
         a {
             display: inline-block;
             width: 150px;
+            color:#fff;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -63,44 +64,15 @@
         @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 
         body {
-            background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+            background-image: url("static/assets/img/view-all.jpg");
+            /* background: -webkit-linear-gradient(left, #25c481, #25b7c4);
             background: linear-gradient(to right, #25c481, #25b7c4);
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', sans-serif; */
         }
 
         section {
             margin: 50px;
         }
-
-
-        /* follow me template */
-        .made-with-love {
-            margin-top: 40px;
-            padding: 10px;
-            clear: left;
-            text-align: center;
-            font-size: 10px;
-            font-family: arial;
-            color: #fff;
-        }
-
-        .made-with-love i {
-            font-style: normal;
-            color: #F50057;
-            font-size: 14px;
-            position: relative;
-            top: 2px;
-        }
-
-        .made-with-love a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .made-with-love a:hover {
-            text-decoration: underline;
-        }
-
 
         /* for custom scrollbar for webkit browser*/
 
@@ -124,23 +96,34 @@
             <table cellpadding="0" cellspacing="0" border="0">
                 <thead>
                     <tr>
-                        <th>
+                        <th><b>
                             ID
+                            </b>
                         </th>
                         <th>
+                            <b>
                             Project Name
+                            </b>
                         </th>
                         <th>
+                            <b>
                             Project Description
+                            </b>
                         </th>
                         <th>
+                            <b>
                             Email
+                            </b>
                         </th>
                         <th>
+                            <b>
                             Resource Link
+                            </b>
                         </th>
                         <th>
+                            <b>
                             GitHub Link
+                            </b>
                         </th>
                     </tr>
                 </thead>
@@ -152,27 +135,39 @@
                     <tr>
                         {% for item in projects.result %}
                         <td>
+                            <b>
                             {{item._id}}
+                            </b>
                         </td>
             
                         <td>
+                            <b>
                             {{item.project_name}}
+                            </b>
                         </td>
                         <td>
+                            <b>
                             {{item.project_description}}
+                            </b>
                         </td>
                         <td>
+                            <b>
                             {{item.email}}
+                            </b>
                         </td>
                         <td>
-                        <a href>
-                            {{item.resource_link}}
-                        </a>
+                            <b>
+                                <a href>
+                                    {{item.resource_link}}
+                                </a>
+                            </b>
                         </td>
                         <td>
-                        <a href>
-                            {{item.github_link}}
-                        </a>
+                            <b>
+                                <a href>
+                                    {{item.github_link}}
+                                </a>
+                            </b>
                         </td>
                     </tr>
 
