@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 import gcp_upload
-from utils import get_prev_id
+from utils import get_prev_id, display_all_projects
 
 
 load_dotenv()
@@ -94,9 +94,13 @@ def get_project_details():
 @app.route('/view-all', methods = ['GET', 'POST'])
 def view_all_projects():
 
+    list_of_projects = display_all_projects()
 
+    result = {
+        "result" : list_of_projects
+    }
 
-    return render_template('view_all.html') 
+    return render_template('view_all.html', projects = result)
 
 
 @app.route('/ping')

@@ -1,16 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    table,
+    th,
+    tr,
+    td {
+        border: 1px solid black;
+    }
+</style>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integrated Project Platform</title>
+
+
 </head>
 
 <body>
 
-    Name GitHub Link Resources Link Project Description Email
+    <table style="width:100%">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Project Name
+            </th>
+            <th>
+                Project Description
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Resource Link
+            </th>
+            <th>
+                GitHub Link
+            </th>
+        </tr>
+
+        <tr>
+            {% for item in projects.result %}
+            <td>
+                {{item._id}}
+            </td>
+
+            <td>
+                {{item.project_name}}
+            </td>
+            <td>
+                {{item.project_description}}
+            </td>
+            <td>
+                {{item.email}}
+            </td>
+            <td>
+                {{item.resource_link}}
+            </td>
+            <td>
+                {{item.github_link}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
 
 </body>
 
