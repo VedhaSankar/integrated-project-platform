@@ -7,9 +7,7 @@ __pycache__/
 .env
 
 # Allow
-! static/a.txt
-! static/assets/*
+! uploads/a.txt
 
 # Ignore
-static/*
 prohost_sa.json

@@ -20,7 +20,7 @@ PORT            = os.environ.get('PORT')
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-app.config["UPLOAD_FOLDER"] = "static/"
+app.config["UPLOAD_FOLDER"] = "uploads/"
 
 client = MongoClient(MONGO_URI)  
 DB_NAME = 'prohost'
@@ -86,8 +86,7 @@ def get_project_details():
             if file:
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            gcp_upload.upload_blob(f'static/{filename}', f'project/{filename}')
-            print("files uploaded")
+            gcp_upload.upload_blob(f'uploads/{filename}', f'project/{filename}')
 
     return render_template('form.html')
 
