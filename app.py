@@ -99,7 +99,7 @@ def view_all_projects():
         "result" : list_of_projects
     }
 
-    return render_template('dums.html', projects = result)
+    return render_template('view_all.html', projects = result)
 
 
 @app.route('/ping')
