@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../static/assets/img/prohost.gif" type="image/png">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="../../static/assets/css/swiper-bundle.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="../../static/assets/css/styles.css">
+
+    <title>ProHost</title>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container" >
+            <a href="#" class="nav__logo" style="color:#142F43">ProHost</a>
+
+            <form class="search-container">
+                <input type="text" id="search-bar" placeholder="Search...">
+                <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+            </form>
+
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link" style="color:#142F43" >Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#discover" class="nav__link" style="color:#142F43">Projects</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#place" class="nav__link" style="color:#142F43">Profile</a>
+                    <li class="nav__item">
+                        <a href="#place" class="nav__link" style="color:#142F43">Login</a>
+                    </li>
+                    </li>
+                </ul>
+
+                <div class="nav__dark">
+                    <!-- Theme change button -->
+                    <span class="change-theme-name">Dark mode</span>
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+                </div>
+
+                <i class="ri-close-line nav__close" id="nav-close"></i>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-function-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <!-- <section class="home" id="home">
+            <img src="../static/assets/img/proj18.png" alt="" class="home__img">
+            <div class="home__container container grid">
+
+                <div class="home__info">
+                </div>
+            </div>
+        </section> -->
+        <!--==================== PROJECT DISPLAY ====================-->
+        <section class="place section" id="place">
+            <h2 class="section__title"><b>PROJECTS  GALLERY</b></h2>
+
+            <div class="place__container container grid">
+                <!--==================== PROJECT 1 ====================-->
+                <div class="place__card">
+                    <img src="../static/assets/img/proj16.jpeg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4.8</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Droney</h3>
+                            <span class="place__subtitle">IIT-R</span>
+                            <span class="place__price">3rd year students</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+
+                <!--==================== PROJECT 2 ====================-->
+                <div class="place__card">
+                    <img src="../static/assets/img/proj15.jpeg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">5.0</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Dronacharya</h3>
+                            <span class="place__subtitle">Sri Venkateshwara College</span>
+                            <span class="place__price">1st Year Students</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+
+                <!--==================== PROJECT 3 ====================-->
+                <div class="place__card">
+                    <img src="../static/assets/img/proj14.jpg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4.9</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Meet-Net</h3>
+                            <span class="place__subtitle">IIT-M</span>
+                            <span class="place__price">BBA Students</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+
+                <!--==================== PROJECT 4 ====================-->
+                <div class="place__card">
+                    <img src="../static/assets/img/proj13.jpeg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4.9</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Whitehaven</h3>
+                            <span class="place__subtitle">DU</span>
+                            <span class="place__price">SJCE</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+
+                <!--==================== PROJECT 5 ====================-->
+                <div class="place__card">
+                    <img src="../static/assets/img/proj4.jpg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4.8</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Hvara</h3>
+                            <span class="place__subtitle">PST College</span>
+                            <span class="place__price">PG students</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+                <!--==================== PROJECT 6 ====================-->
+
+                <div class="place__card">
+                    <img src="../static/assets/img/proj6.jpg" alt="" class="place__img">
+
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4.8</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Amazony</h3>
+                            <span class="place__subtitle">St John's College</span>
+                            <span class="place__price">UG students</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__rights">
+                <p class="footer__copy">&#169; 2021 ProHost. All rights reserved.</p>
+                <div class="footer__terms">
+                    <a href="#" class="footer__terms-link">Terms & Agreements</a>
+                    <a href="#" class="footer__terms-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCROLL REVEAL===============-->
+    <script src="../static/assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="../static/assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="../static/assets/js/main.js"></script>
+</body>
+
+</html>
