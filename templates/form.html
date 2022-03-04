@@ -8,17 +8,16 @@
     <title>Document</title>
     <style>
         /* UPLOADER */
-
+        
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
         @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
         }
-
+        
         .container {
             height: 100vh;
             width: 100%;
@@ -27,7 +26,7 @@
             justify-content: center;
             background-color: #fcfcfc;
         }
-
+        
         .card {
             border-radius: 10px;
             box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
@@ -36,12 +35,12 @@
             background-color: #ffffff;
             padding: 10px 30px 40px;
         }
-
+        
         .card h3 {
             font-size: 22px;
             font-weight: 600;
         }
-
+        
         .drop_box {
             margin: 10px 0;
             padding: 30px;
@@ -52,20 +51,20 @@
             border: 3px dotted #a3a3a3;
             border-radius: 5px;
         }
-
+        
         .drop_box h4 {
             font-size: 16px;
             font-weight: 400;
             color: #2e2e2e;
         }
-
+        
         .drop_box p {
             margin-top: 10px;
             margin-bottom: 20px;
             font-size: 12px;
             color: #a3a3a3;
         }
-
+        
         .btn {
             text-decoration: none;
             background-color: #005af0;
@@ -75,7 +74,7 @@
             outline: none;
             transition: 0.3s;
         }
-
+        
         .btn:hover {
             text-decoration: none;
             background-color: #ffffff;
@@ -84,7 +83,7 @@
             border: none;
             outline: 1px solid #010101;
         }
-
+        
         .form input {
             margin: 10px 0;
             width: 100%;
@@ -94,14 +93,13 @@
             padding: 12px 20px;
             border-radius: 4px;
         }
-
         /* FORM  */
-
+        
         @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
         /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-        :root {
+        
+         :root {
             --white: #afafaf;
             --red: #e31b23;
             --bodyColor: white;
@@ -109,7 +107,7 @@
             --bgFormEls: white;
             --bgFormElsFocus: white;
         }
-
+        
         * {
             padding: 0;
             margin: 0;
@@ -120,11 +118,11 @@
             border-bottom-right-radius: 25px;
             border-bottom-left-radius: 25px;
         }
-
+        
         a {
             color: inherit;
         }
-
+        
         input,
         select,
         textarea,
@@ -132,64 +130,61 @@
             font-family: inherit;
             font-size: 100%;
         }
-
+        
         button,
         label {
             cursor: pointer;
         }
-
+        
         select {
             appearance: none;
         }
-
         /* Remove native arrow on IE */
-
+        
         select::-ms-expand {
             display: none;
         }
-
         /*Remove dotted outline from selected option on Firefox*/
         /*https://stackoverflow.com/questions/3773430/remove-outline-from-select-box-in-ff/18853002#18853002*/
         /*We use !important to override the color set for the select on line 99*/
-
+        
         select:-moz-focusring {
             color: transparent !important;
             text-shadow: 0 0 0 var(--white);
         }
-
+        
         textarea {
             resize: none;
         }
-
+        
         ul {
             list-style: none;
         }
-
+        
         body {
             font: 18px/1.5 "Open Sans", sans-serif;
             background: white;
             color: #151D3B;
             margin: 1.5rem 0;
         }
-
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
-
         /* FORM ELEMENTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+        
         .my-form h1 {
             margin-bottom: 1.5rem;
         }
-
+        
         .my-form li,
         .my-form .grid>*:not(:last-child) {
             margin-bottom: 1.5rem;
         }
-
+        
         .my-form select,
         .my-form input,
         .my-form textarea,
@@ -202,17 +197,17 @@
             background: #151D3B;
             transition: background-color 0.3s #151D3B, transform 0.3s #151D3B;
         }
-
+        
         .my-form textarea {
             height: 170px;
         }
-
+        
         .my-form ::placeholder {
             color: inherit;
             /*Fix opacity issue on Firefox*/
             opacity: 1;
         }
-
+        
         .my-form select:focus,
         .my-form input:focus,
         .my-form textarea:focus,
@@ -221,96 +216,94 @@
         .my-form input[type="checkbox"]:focus+label {
             background: var(--bgFormElsFocus);
         }
-
+        
         .my-form select:focus,
         .my-form input:focus,
         .my-form textarea:focus {
             transform: scale(1.02);
         }
-
+        
         .my-form *:required,
         .my-form select {
             background-repeat: no-repeat;
             background-position: center right 12px;
             background-size: 15px 15px;
         }
-
+        
         .my-form *:required {
             background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg);
         }
-
+        
         .my-form select {
             background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/down.svg);
         }
-
+        
         .my-form *:disabled {
             cursor: default;
             filter: blur(2px);
         }
-
         /* FORM BTNS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+        
         .my-form .required-msg {
             display: none;
             background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg) no-repeat center left / 15px 15px;
             padding-left: 20px;
         }
-
+        
         .my-form .btn-grid {
             position: relative;
             overflow: hidden;
             transition: filter 0.2s;
         }
-
+        
         .my-form button {
             font-weight: bold;
         }
-
+        
         .my-form button>* {
             display: inline-block;
             width: 100%;
             transition: transform 0.4s ease-in-out;
         }
-
+        
         .my-form button .back {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-110%, -50%);
         }
-
+        
         .my-form button:enabled:hover .back,
         .my-form button:focus .back {
             transform: translate(-50%, -50%);
         }
-
+        
         .my-form button:enabled:hover .front,
         .my-form button:focus .front {
             transform: translateX(110%);
         }
-
         /* CUSTOM CHECKBOX
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+        
         .my-form input[type="checkbox"] {
             position: absolute;
             left: -9999px;
         }
-
+        
         .my-form input[type="checkbox"]+label {
             position: relative;
             display: inline-block;
             padding-left: 2rem;
             transition: background 0.3s white;
         }
-
+        
         .my-form input[type="checkbox"]+label::before,
         .my-form input[type="checkbox"]+label::after {
             content: '';
             position: absolute;
         }
-
+        
         .my-form input[type="checkbox"]+label::before {
             left: 0;
             top: 6px;
@@ -318,11 +311,11 @@
             height: 18px;
             border: 2px solid var(--white);
         }
-
+        
         .my-form input[type="checkbox"]:checked+label::before {
             background: var(--red);
         }
-
+        
         .my-form input[type="checkbox"]:checked+label::after {
             left: 7px;
             top: 7px;
@@ -332,58 +325,50 @@
             border-right: 2px solid var(--white);
             transform: rotate(45deg);
         }
-
         /* MQ
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+        
         @media screen and (min-width: 600px) {
             .my-form .grid {
                 display: grid;
                 grid-gap: 1.5rem;
             }
-
             .my-form .grid-2 {
                 grid-template-columns: 1fr 1fr;
             }
-
             .my-form .grid-3 {
                 grid-template-columns: auto auto auto;
                 align-items: center;
             }
-
             .my-form .grid>*:not(:last-child) {
                 margin-bottom: 0;
             }
-
             .my-form .required-msg {
                 display: block;
             }
         }
-
+        
         @media screen and (min-width: 541px) {
             .my-form input[type="checkbox"]+label::before {
                 top: 50%;
                 transform: translateY(-50%);
             }
-
             .my-form input[type="checkbox"]:checked+label::after {
                 top: 3px;
                 color: white;
             }
         }
-
         /* WAVES */
-
+        
         @import url(//fonts.googleapis.com/css?family=Lato:300:400);
-
-        :root {
+         :root {
             --gradient-percent: 0%;
         }
-
+        
         body {
             margin: 0;
         }
-
+        
         h1 {
             font-family: 'Lato', sans-serif;
             font-weight: 300;
@@ -391,21 +376,21 @@
             font-size: 48px;
             text-align: center;
         }
-
+        
         p {
             font-family: 'Lato', sans-serif;
             letter-spacing: 1px;
             font-size: 14px;
             color: #333333;
         }
-
+        
         .header {
             position: relative;
             text-align: center;
             background: linear-gradient(90deg, #21325E var(--gradient-percent), rgba(154, 198, 229, 1) 100%);
             color: white;
         }
-
+        
         .logo {
             width: 50px;
             fill: white;
@@ -413,14 +398,14 @@
             display: inline-block;
             vertical-align: middle;
         }
-
+        
         .inner-header {
             height: 20vh;
             width: 100%;
             margin: 0;
             padding: 0;
         }
-
+        
         .flex {
             /*Flexbox for containers*/
             display: flex;
@@ -428,7 +413,7 @@
             align-items: center;
             text-align: center;
         }
-
+        
         .waves {
             position: relative;
             width: 100%;
@@ -438,60 +423,57 @@
             min-height: 100px;
             max-height: 150px;
         }
-
+        
         .content {
             position: relative;
             height: 20vh;
             text-align: center;
             background-color: white;
         }
-
         /* Animation */
+        
         .parallax>use {
             animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
         }
-
+        
         .parallax>use:nth-child(1) {
             animation-delay: -2s;
             animation-duration: 7s;
         }
-
+        
         .parallax>use:nth-child(2) {
             animation-delay: -3s;
             animation-duration: 10s;
         }
-
+        
         .parallax>use:nth-child(3) {
             animation-delay: -4s;
             animation-duration: 13s;
         }
-
+        
         .parallax>use:nth-child(4) {
             animation-delay: -5s;
             animation-duration: 20s;
         }
-
+        
         @keyframes move-forever {
             0% {
                 transform: translate3d(-90px, 0, 0);
             }
-
             100% {
                 transform: translate3d(85px, 0, 0);
             }
         }
-
         /*Shrinking for mobile*/
+        
         @media (max-width: 768px) {
             .waves {
                 height: 40px;
                 min-height: 40px;
             }
-
             .content {
                 height: 30vh;
             }
-
             h1 {
                 font-size: 24px;
             }
@@ -508,8 +490,7 @@
 
         <!--Waves Container-->
         <div>
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                 <defs>
                     <path id="gentle-wave"
                         d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
@@ -538,15 +519,13 @@
                     <div class="grid grid-2">
                         <!-- <label for="project_name"></label> -->
                         <!-- <input type="text" placeholder="Name" required> -->
-                        <input type="text" placeholder="Enter Project Name" name="project_name" required label
-                            for="project_name">
+                        <input type="text" placeholder="Enter Project Name" name="project_name" required label for="project_name">
                         <!-- <label for="project_name"></label> -->
 
                         <input type="text" placeholder="Email" name='email' label for="email" required>
                         <!-- <label for="resource_link"></label> -->
 
-                        <input type="url" placeholder="Enter Resource Link" name="resource_link" label
-                            for="resource_link">
+                        <input type="url" placeholder="Enter Resource Link" name="resource_link" label for="resource_link">
                         <!-- <label for="resource_link"></label> -->
 
                         <!-- <label for="github_link"></label> -->
@@ -569,7 +548,7 @@
                     <textarea name="project_description" placeholder="Project description:"></textarea>
                 </li>
                 <li>
-                    <input type="file" name="files[]" multiple="true" autocomplete="off">
+                    <input type="file" name="file">
                     <!-- <input type="submit" value="Submit" /> -->
                 </li>
                 <li>
@@ -638,7 +617,7 @@
             input.click();
         };
 
-        input.addEventListener("change", function (e) {
+        input.addEventListener("change", function(e) {
             var fileName = e.target.files[0].name;
             let filedata = `
     <form action="" method="post">
@@ -655,7 +634,7 @@
         const checkbox = document.querySelector('.my-form input[type="checkbox"]');
         const btns = document.querySelectorAll(".my-form button");
 
-        checkbox.addEventListener("change", function () {
+        checkbox.addEventListener("change", function() {
             const checked = this.checked;
             for (const btn of btns) {
                 checked ? (btn.disabled = false) : (btn.disabled = true);
