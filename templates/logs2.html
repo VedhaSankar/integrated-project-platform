@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Login Page</title>
+    <!-- <link rel="stylesheet" href="login_assets\style.css"> -->
+    <style>
+        /* @import url(@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400')); */
+        
+        .page-wrapper {
+            height: 100vh;
+            font-family: 'Lato', sans-serif;
+            background-color: #008080;
+            /* background-image: url("static/assets/img/view-all.png"); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .prompt-container {
+            background-color: white;
+            width: 400px;
+            padding: 35px 45px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            font-weight: 100;
+            font-size: 1.25em;
+            /* 20/16 */
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        input {
+            border-radius: 5px;
+            background-color: #E5E9ED;
+            border: none;
+            margin: 8px 0;
+            padding: 16px 16px;
+            font-size: 1em;
+            /* 16/16 */
+            font-weight: 300;
+        }
+        
+        .checkbox-span {
+            margin-top: 8px;
+        }
+        
+        label {
+            font-size: .8em;
+            font-weight: 300;
+        }
+        
+        #checkbox {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        
+        button {
+            border-radius: 6px;
+            padding: 16px 0;
+            text-align: center;
+            background-color: #1B505C;
+            border: none;
+            font-size: 1em;
+            /* 16/16 */
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: white;
+            margin-top: 16px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #008080;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="/" method="post">
+        <div class="page-wrapper">
+            <div class="prompt-container">
+                <h1>Sign in to your account</h1>
+                <label for="uname"><b>Username</b></label>
+                <input type="uname" id="uname" name="uname" placeholder="Username">
+                <label for="psw"><b>Password</b></label>
+                <input type="password" id="password" name="psw" placeholder="password" required>
+
+                
+                <span class="checkbox-span">
+        <input type="checkbox" id="checkbox" name="checkbox_checked">
+        <label style="font-size:15px;"  for="student" value="student"> Student</label><br>
+        <!-- <label style="font-size:15px;" for="checkbox">Student</label> -->
+      </span>
+                <span class="checkbox-span">
+        <input type="checkbox" id="checkbox" name="checkbox_checked" value="teacher">
+        <label style="font-size:15px;" for="checkbox">Faculty</label>
+      </span>
+
+                <button onclick="location.href = 'frontpage.html';" id="myButton" class="float-left submit-button">Sign In</button>
+
+
+            </div>
+        </div>
+        <!-- <script src="login_assets\main.js"></script> -->
+        <br>
+        <br> {{error}}
+
+    </form>
+    <script>
+        (function($) {
+
+            "use strict";
+
+
+        })(jQuery);
+
+        $('input[type="checkbox"]').on('change', function() {
+            $('input[type="checkbox"]').not(this).prop('checked', false);
+        });
+    </script>
+</body>
+
+</html>

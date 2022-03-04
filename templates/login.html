@@ -1,132 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title> Login Page</title>
-    <!-- <link rel="stylesheet" href="login_assets\style.css"> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        /* @import url(@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400')); */
-        
-        .page-wrapper {
-            height: 100vh;
-            font-family: 'Lato', sans-serif;
-            background-color: #008080;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        body {
+            background-color: #f45b69;
+            font-family: "Asap", sans-serif;
         }
-        
-        .prompt-container {
+
+        .login {
+            overflow: hidden;
             background-color: white;
+            padding: 40px 30px 30px 30px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
             width: 400px;
-            padding: 35px 45px;
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-            -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+            -moz-transition: -moz-transform 300ms, box-shadow 300ms;
+            transition: transform 300ms, box-shadow 300ms;
+            box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
         }
-        
-        h1 {
-            font-weight: 100;
-            font-size: 1.25em;
-            /* 20/16 */
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-            text-align: center;
+
+        .login::before,
+        .login::after {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-top-left-radius: 40%;
+            border-top-right-radius: 45%;
+            border-bottom-left-radius: 35%;
+            border-bottom-right-radius: 40%;
+            z-index: -1;
         }
-        
-        input {
+
+        .login::before {
+            left: 40%;
+            bottom: -130%;
+            background-color: rgba(69, 105, 144, 0.15);
+            -webkit-animation: wawes 6s infinite linear;
+            -moz-animation: wawes 6s infinite linear;
+            animation: wawes 6s infinite linear;
+        }
+
+        .login::after {
+            left: 35%;
+            bottom: -125%;
+            background-color: rgba(2, 128, 144, 0.2);
+            -webkit-animation: wawes 7s infinite;
+            -moz-animation: wawes 7s infinite;
+            animation: wawes 7s infinite;
+        }
+
+        .login>input {
+            font-family: "Asap", sans-serif;
+            display: block;
             border-radius: 5px;
-            background-color: #E5E9ED;
-            border: none;
-            margin: 8px 0;
-            padding: 16px 16px;
-            font-size: 1em;
-            /* 16/16 */
-            font-weight: 300;
+            font-size: 16px;
+            background: white;
+            width: 100%;
+            border: 0;
+            padding: 10px 10px;
+            margin: 15px -10px;
         }
-        
-        .checkbox-span {
-            margin-top: 8px;
-        }
-        
-        label {
-            font-size: .8em;
-            font-weight: 300;
-        }
-        
-        #checkbox {
-            margin-right: 8px;
+
+        .login>button {
+            font-family: "Asap", sans-serif;
             cursor: pointer;
-        }
-        
-        button {
-            border-radius: 6px;
-            padding: 16px 0;
-            text-align: center;
-            background-color: #1B505C;
-            border: none;
-            font-size: 1em;
-            /* 16/16 */
-            font-weight: 400;
-            letter-spacing: 1px;
+            color: #fff;
+            font-size: 16px;
             text-transform: uppercase;
-            color: white;
-            margin-top: 16px;
-            cursor: pointer;
+            width: 80px;
+            border: 0;
+            padding: 10px 0;
+            margin-top: 10px;
+            margin-left: -5px;
+            border-radius: 5px;
+            background-color: #f45b69;
+            -webkit-transition: background-color 300ms;
+            -moz-transition: background-color 300ms;
+            transition: background-color 300ms;
         }
-        
-        button:hover {
-            background-color: #008080;
+
+        .login>button:hover {
+            background-color: #f24353;
+        }
+
+        @-webkit-keyframes wawes {
+            from {
+                -webkit-transform: rotate(0);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes wawes {
+            from {
+                -moz-transform: rotate(0);
+            }
+
+            to {
+                -moz-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes wawes {
+            from {
+                -webkit-transform: rotate(0);
+                -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                -o-transform: rotate(0);
+                transform: rotate(0);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.6);
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            font-size: 12px;
         }
     </style>
-
 </head>
 
 <body>
-    <form action="/" method="post">
-        <div class="page-wrapper">
-            <div class="prompt-container">
-                <h1>Sign in to your account</h1>
-                <label for="uname"><b>Username</b></label>
-                <input type="uname" id="uname" name="uname" placeholder="Username">
-                <label for="psw"><b>Password</b></label>
-                <input type="password" id="password" name="psw" placeholder="password" required>
-                <span class="checkbox-span">
-        <input type="checkbox" id="checkbox" name="checkbox_checked">
-        <label style="font-size:15px;"  for="student" value="student"> Student</label><br>
-        <!-- <label style="font-size:15px;" for="checkbox">Student</label> -->
-      </span>
-                <span class="checkbox-span">
-        <input type="checkbox" id="checkbox" name="checkbox_checked" value="teacher">
-        <label style="font-size:15px;" for="checkbox">Faculty</label>
-      </span>
+    <form action="/" method="post" class="login" >
+        <h1>Sign in to your account</h1>
 
-                <button onclick="location.href = 'frontpage.html';" id="myButton" class="float-left submit-button">Sign In</button>
+        <label for="uname"><b>Username</b></label>
+        <input type="uname" id="uname" name="uname" placeholder="Username">
 
+        <label for="psw"><b>Password</b></label>
+        <input type="password" id="password" name="psw" placeholder="password" required>
+        
 
-            </div>
-        </div>
-        <!-- <script src="login_assets\main.js"></script> -->
-        <br>
-        <br> {{error}}
-
+        <button onclick="location.href = 'frontpage.html';" id="myButton" class="float-left submit-button">Sign In</button>
+        <!-- <button>Login</button> -->
     </form>
-    <script>
-        (function($) {
-
-            "use strict";
-
-
-        })(jQuery);
-
-        $('input[type="checkbox"]').on('change', function() {
-            $('input[type="checkbox"]').not(this).prop('checked', false);
-        });
-    </script>
 </body>
 
 </html>
