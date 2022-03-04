@@ -60,10 +60,10 @@ def get_project_details():
         resource_link       = request.values.get('resource_link')
         github_link         = request.values.get('github_link')
 
-        current_id = get_prev_id() + 1
+        current_project_id = get_prev_id() + 1
 
         project_dict = {
-            '_id'                 : current_id,
+            '_id'                 : current_project_id,
             "project_name"        : project_name,
             "project_description" : project_description,
             "email"               : email,
@@ -86,7 +86,7 @@ def get_project_details():
             if file:
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            gcp_upload.upload_blob(f'uploads/{filename}', f'project/{filename}')
+            gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
 
     return render_template('form.html')
 
