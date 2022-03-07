@@ -3,6 +3,8 @@ from pymongo import MongoClient
 # import pymongo.errors as pymon_err
 from dotenv import load_dotenv
 import os
+from zipfile import ZipFile
+
 
 load_dotenv()
 
@@ -42,12 +44,17 @@ def display_all_projects():
         list_of_projects.append(project)
 
     return list_of_projects
+
+def extract_zip(file_name):
+    with ZipFile(file_name, 'r') as zip:
+        zip.extractall('uploads')
         
 
 def main():
 
     # get_prev_id()
-    display_all_projects()
+    # display_all_projects()
+    extract_zip('uploads/mongo-docker.zip')
 
 
 if __name__ == '__main__':  
