@@ -2,3 +2,4 @@ dnspython
 pymongo
 flask
 python-dotenv
+google-cloud-storage
