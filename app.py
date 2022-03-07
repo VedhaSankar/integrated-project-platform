@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 import gcp_upload
 from utils import get_prev_id, display_all_projects
-
+import subprocess
 
 load_dotenv()
 
@@ -162,6 +162,7 @@ def simple_file_upload():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
+            subprocess.call(["./cr_deploy.sh"])
             
             return render_template('simple_file_upload.html')
             # return redirect(url_for('download_file', name=filename))

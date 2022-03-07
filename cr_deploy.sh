@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get project image name
-IMAGE_NAME=$(cat .env | grep IMAGE_NAME | cut -d '=' -f 3)
+IMAGE_NAME=$(cat uploads/env | grep IMAGE_NAME | cut -d '=' -f 3)
 
 # Create a Docker repository in Artifact Registry
 gcloud artifacts repositories \
@@ -15,7 +15,7 @@ export PROJECT=$(gcloud info --format='value(config.project)')
 
 # Build the Docker image
 gcloud builds submit --tag \
-     us-central1-docker.pkg.dev/$PROJECT/project-images/mongo-docker:latest
+     us-central1-docker.pkg.dev/$PROJECT/project-images/$IMAGE_NAME:latest
 
 # Run image on CR
-gcloud run deploy mongo-docker --image us-central1-docker.pkg.dev/$PROJECT/my-docker-repo/mongo-docker:latest
+gcloud run deploy mongo-docker --image us-central1-docker.pkg.dev/$PROJECT/project-images/$IMAGE_NAME:latest
