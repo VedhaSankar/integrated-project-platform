@@ -1,11 +1,17 @@
-from zipfile import ZipFile
+from zipfile import ZipFile 
   
 file_name = "uploads/main_branch.zip"
 
-with ZipFile(file_name, 'r') as zip:
-    zip.printdir()
+def extract_zip(file_name):
+    with ZipFile(file_name, 'r') as zip:
+        zip.extractall('uploads')
 
-    print('Extracting all the files now...')
-    a = zip.extractall()
-    print(a)
+
+def main():
+
+    extract_zip(file_name)
+
+    
+if __name__ == '__main__':
+    main
 
