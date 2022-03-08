@@ -83,17 +83,6 @@ def get_project_details():
         x = new_collection.insert_one(project_dict)
         print(x)
 
-        # if 'files[]' not in request.files:
-        #     flash('No file part')
-        #     return redirect(request.url)
-
-        # files = request.files.getlist('files[]')
-
-        # for file in files:
-        #     if file:
-        #         filename = secure_filename(file.filename)
-        #         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
         if request.method == 'POST':
         # check if the post request has the file part
             if 'file' not in request.files:
@@ -117,6 +106,8 @@ def get_project_details():
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 extract_zip(f'uploads/{filename}')
                 gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
+                print("1")
+                subprocess.call(["./cr_deploy.sh","testing" ])
 
                 return render_template('form.html')
                 # return redirect(url_for('download_file', name=filename))
@@ -137,43 +128,43 @@ def view_all_projects():
 
     return render_template('view_all.html', projects = result)
 
-@app.route('/env-upload', methods = ['GET', 'POST'])
-def simple_file_upload():
+# @app.route('/cr-deploy', methods = ['GET', 'POST'])
+# def simple_file_upload():
 
-    current_project_id = get_prev_id() + 1
+#     current_project_id = get_prev_id() + 1
 
-    if request.method == 'POST':
-    # check if the post request has the file part
-        if 'env_file' not in request.files:
+#     if request.method == 'POST':
+#     # check if the post request has the file part
+#         if 'env_file' not in request.files:
 
-            flash('No file part')
-            return redirect(request.url)
+#             flash('No file part')
+#             return redirect(request.url)
 
-        file = request.files['env_file']
+#         file = request.files['env_file']
 
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
+#         # If the user does not select a file, the browser submits an
+#         # empty file without a filename.
 
-        if file.filename == '':
+#         if file.filename == '':
 
-            flash('No selected file')
-            return redirect(request.url)
+#             flash('No selected file')
+#             return redirect(request.url)
 
-        if file:
+#         if file:
 
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
-            subprocess.call(["./cr_deploy.sh"])
+#             filename = secure_filename(file.filename)
+#             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#             gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
+#             subprocess.call(["./cr_deploy.sh","testing" ])
             
-            return render_template('simple_file_upload.html')
-            # return redirect(url_for('download_file', name=filename))
-        # else:
-        #     flash('Allowed file type is .zip')
-        #     return redirect(request.url)
+#             return render_template('simple_file_upload.html')
+#             # return redirect(url_for('download_file', name=filename))
+#         # else:
+#         #     flash('Allowed file type is .zip')
+#         #     return redirect(request.url)
 
 
-    return render_template('simple_file_upload.html')
+#     return render_template('simple_file_upload.html')
 
 
 @app.route('/ping')
