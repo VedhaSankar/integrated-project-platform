@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <style>
         body {
             background-color: #151D3B;
             font-family: "Asap", sans-serif;
         }
-
+        
         .login {
             overflow: hidden;
             background-color: white;
@@ -32,7 +33,7 @@
             transition: transform 300ms, box-shadow 300ms;
             box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
         }
-
+        
         .login::before,
         .login::after {
             content: "";
@@ -45,7 +46,7 @@
             border-bottom-right-radius: 40%;
             z-index: -1;
         }
-
+        
         .login::before {
             left: 40%;
             bottom: -130%;
@@ -54,7 +55,7 @@
             -moz-animation: wawes 6s infinite linear;
             animation: wawes 6s infinite linear;
         }
-
+        
         .login::after {
             left: 35%;
             bottom: -125%;
@@ -63,7 +64,7 @@
             -moz-animation: wawes 7s infinite;
             animation: wawes 7s infinite;
         }
-
+        
         .login>input {
             font-family: "Asap", sans-serif;
             display: block;
@@ -75,7 +76,7 @@
             padding: 10px 10px;
             margin: 15px -10px;
         }
-
+        
         .login>button {
             font-family: "Asap", sans-serif;
             cursor: pointer;
@@ -93,31 +94,29 @@
             -moz-transition: background-color 300ms;
             transition: background-color 300ms;
         }
-
+        
         .login>button:hover {
             background-color: #151D3B;
         }
-
+        
         @-webkit-keyframes wawes {
             from {
                 -webkit-transform: rotate(0);
             }
-
             to {
                 -webkit-transform: rotate(360deg);
             }
         }
-
+        
         @-moz-keyframes wawes {
             from {
                 -moz-transform: rotate(0);
             }
-
             to {
                 -moz-transform: rotate(360deg);
             }
         }
-
+        
         @keyframes wawes {
             from {
                 -webkit-transform: rotate(0);
@@ -126,7 +125,6 @@
                 -o-transform: rotate(0);
                 transform: rotate(0);
             }
-
             to {
                 -webkit-transform: rotate(360deg);
                 -moz-transform: rotate(360deg);
@@ -135,7 +133,7 @@
                 transform: rotate(360deg);
             }
         }
-
+        
         a {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.6);
@@ -148,16 +146,15 @@
 </head>
 
 <body>
-    <form action="/" method="post" class="login" >
-        <h1 style="padding-left: 130px; color:#151D3B ;"><i class="fa-solid fa-user"></i>
-            Sign In</h1>
+    <form action="/" method="post" class="login">
+        <h1 style="padding-left: 130px; color:#151D3B ;"><i class="fa-solid fa-user"></i> Sign Up</h1>
 
         <label for="uname"><b>AICTE ID</b></label>
         <input type="uname" id="uname" name="uname" placeholder="Username">
 
         <label for="psw"><b>Password</b></label>
         <input type="password" id="password" name="psw" placeholder="password" required>
-        
+
 
         <button onclick="location.href = 'frontpage.html';" id="myButton" class="float-left submit-button">Sign In</button>
 
