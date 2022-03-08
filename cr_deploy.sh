@@ -13,10 +13,14 @@ gcloud artifacts repositories \
 # Get project ID
 export PROJECT=$(gcloud info --format='value(config.project)')
 
-cd uploads/mongo-docker/
-docker build -t testing .
+cd uploads/
+FOLDER=$(ls -td -- */ | head -n 1)
+cd $FOLDER
 
 IMAGE_NAME="testing"
+
+docker build -t $IMAGE_NAME .
+
 
 # Build the Docker image
 gcloud builds submit --tag \
