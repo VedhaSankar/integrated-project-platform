@@ -9,7 +9,6 @@ GOOGLE_APPLICATION_CREDENTIALS = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS'
 
 
 def upload_blob(source_file_name, destination_blob_name):
-    print("here")
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = GOOGLE_APPLICATION_CREDENTIALS
     """Uploads a file to the bucket."""
     # The ID of your GCS bucket
@@ -21,7 +20,6 @@ def upload_blob(source_file_name, destination_blob_name):
 
     storage_client = storage.Client()
     bucket = storage_client.bucket(BUCKET_NAME)
-    print ("helo    ")
     blob = bucket.blob(destination_blob_name)
 
     blob.upload_from_filename(source_file_name)
