@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProHost</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background-color: #151D3B;
             font-family: "Asap", sans-serif;
         }
-        
+
         .login {
             overflow: hidden;
             background-color: white;
@@ -33,7 +34,7 @@
             transition: transform 300ms, box-shadow 300ms;
             box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
         }
-        
+
         .login::before,
         .login::after {
             content: "";
@@ -46,7 +47,7 @@
             border-bottom-right-radius: 40%;
             z-index: -1;
         }
-        
+
         .login::before {
             left: 40%;
             bottom: -130%;
@@ -55,7 +56,7 @@
             -moz-animation: wawes 6s infinite linear;
             animation: wawes 6s infinite linear;
         }
-        
+
         .login::after {
             left: 35%;
             bottom: -125%;
@@ -64,7 +65,7 @@
             -moz-animation: wawes 7s infinite;
             animation: wawes 7s infinite;
         }
-        
+
         .login>input {
             font-family: "Asap", sans-serif;
             display: block;
@@ -76,7 +77,7 @@
             padding: 10px 10px;
             margin: 15px -10px;
         }
-        
+
         .login>button {
             font-family: "Asap", sans-serif;
             cursor: pointer;
@@ -94,29 +95,31 @@
             -moz-transition: background-color 300ms;
             transition: background-color 300ms;
         }
-        
+
         .login>button:hover {
             background-color: #151D3B;
         }
-        
+
         @-webkit-keyframes wawes {
             from {
                 -webkit-transform: rotate(0);
             }
+
             to {
                 -webkit-transform: rotate(360deg);
             }
         }
-        
+
         @-moz-keyframes wawes {
             from {
                 -moz-transform: rotate(0);
             }
+
             to {
                 -moz-transform: rotate(360deg);
             }
         }
-        
+
         @keyframes wawes {
             from {
                 -webkit-transform: rotate(0);
@@ -125,6 +128,7 @@
                 -o-transform: rotate(0);
                 transform: rotate(0);
             }
+
             to {
                 -webkit-transform: rotate(360deg);
                 -moz-transform: rotate(360deg);
@@ -133,7 +137,7 @@
                 transform: rotate(360deg);
             }
         }
-        
+
         a {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.6);
@@ -141,6 +145,46 @@
             right: 10px;
             bottom: 10px;
             font-size: 12px;
+        }
+
+        /* sign-up button */
+        .bn632-hover {
+            width: 160px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            margin: 20px;
+            height: 55px;
+            text-align: center;
+            border: none;
+            background-size: 300% 100%;
+            border-radius: 50px;
+            moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+
+        .bn632-hover:hover {
+            background-position: 100% 0;
+            moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+
+        .bn632-hover:focus {
+            outline: none;
+        }
+
+        .bn632-hover.bn26 {
+            background-image: linear-gradient(to right,
+                    #25aae1,
+                    #4481eb,
+                    #04befe,
+                    #3f86ed);
+            box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
         }
     </style>
 </head>
@@ -158,8 +202,10 @@
         <button onclick="location.href = 'home.html';" id="signin" class="float-left submit-button">Sign In</button>
         <!-- <button>Login</button> -->
     </form>
+
     <a href="/signup">
-        <button onclick="location.href = 'home.html';" id="signup" class="float-left submit-button" style="margin-left: 15px;">Sign Up </button>
+        <button onclick="location.href = 'home.html';" id="signup" class="bn632-hover bn26"
+            style="margin-left: -750px;">Sign Up </button>
     </a>
 
 
