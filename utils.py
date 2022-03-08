@@ -25,9 +25,9 @@ def get_collections():
     for collect in collections: 
         print(collect) 
 
-def get_prev_id():
+def get_prev_id(db):
 
-    collection = database['project_details']
+    collection = database[db]
     last_id = collection.find().sort([("_id", pymongo.DESCENDING)]).limit(1)
 
     for i in last_id:

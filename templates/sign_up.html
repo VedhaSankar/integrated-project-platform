@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ProHost</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <style>
@@ -146,22 +146,25 @@
 </head>
 
 <body>
-    <form action="/" method="post" class="login">
+    <form action="/signup" method="post" class="login">
         <h1 style="padding-left: 120px; color:#151D3B ;"><i class="fa-solid fa-user"></i> Sign Up</h1>
 
-        <label for="uname"><b>AICTE ID</b></label>
+        <label for="aitceid"><b>AICTE ID</b></label>
+        <input type="aitceid" id="aitceid" name="aitceid" placeholder="AICTE ID">
+
+        <label for="uname"><b>Username</b></label>
         <input type="uname" id="uname" name="uname" placeholder="Username">
 
-        <label for="cn"><b>College Name</b></label>
-        <input type="col_name" id="col_name" name="cn" placeholder="College Name" required>
+        <label for="college_name"><b>College Name</b></label>
+        <input type="college_name" id="college_name" name="college_name" placeholder="College Name" required>
 
-        <label for="eid"><b>Email ID</b></label>
-        <input type="email" id="eid" name="eid" placeholder="Email ID" required>
+        <label for="email_id"><b>Email ID</b></label>
+        <input type="email_id" id="email_id" name="email_id" placeholder="Email ID" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" id="password" name="psw" placeholder="password" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="password" name="password" placeholder="Password" required>
 
-        <button onclick="location.href = 'frontpage.html';" id="myButton" class="float-left submit-button">Sign In</button>
+        <button onclick="location.href = 'frontpage.html';" id="myButton" class="float-left submit-button">Sign Up</button>
 
         <!-- <button>Login</button> -->
     </form>

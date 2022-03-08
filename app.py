@@ -72,8 +72,11 @@ def get_project_details():
         email               = request.values.get('email')
         resource_link       = request.values.get('resource_link')
         github_link         = request.values.get('github_link')
+        app_name            = request.values.get('app_name')
 
-        current_project_id = get_prev_id() + 1
+        collection_name = 'project_details'
+
+        current_project_id = get_prev_id(collection_name) + 1
 
         project_dict = {
             '_id'                 : current_project_id,
@@ -84,7 +87,6 @@ def get_project_details():
             "github_link"         : github_link
         }
 
-        collection_name = 'project_details'
         new_collection = database[collection_name]
         x = new_collection.insert_one(project_dict)
         print(x)
@@ -111,8 +113,9 @@ def get_project_details():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 extract_zip(f'uploads/{filename}')
-                gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
-                subprocess.call(["./cr_deploy.sh project"])
+                # gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
+                subprocess.call(["./cr_deploy.sh"])
+                print("yolo")
                 return render_template('form.html')
                 # return redirect(url_for('download_file', name=filename))
             else:
@@ -134,6 +137,32 @@ def view_all_projects():
 
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
+
+    if request.method == 'POST':
+
+        aitceid         = request.values.get('aitceid')
+        uname           = request.values.get('uname')
+        college_name    = request.values.get('college_name')
+        email_id        = request.values.get('email_id')
+        password        = request.values.get('password')
+
+        collection_name = 'user_details'
+
+        current_user_id = get_prev_id(collection_name) + 1
+
+        user_dict = {
+            '_id'           : current_user_id,
+            "aitceid"       : aitceid,
+            "uname"         : uname,
+            "college_name"  : college_name,
+            "email_id"      : email_id,
+            "password"      : password
+        }
+
+
+        new_collection = database[collection_name]
+        x = new_collection.insert_one(user_dict)
+        print(x)
 
     return render_template('sign_up.html')
 
