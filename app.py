@@ -18,6 +18,10 @@ ADMIN_PASSWORD      = os.environ.get('ADMIN_PASSWORD')
 MONGO_URI           = os.environ.get('MONGO_URI')
 PORT                = os.environ.get('PORT')
 ALLOWED_EXTENSIONS  = {'zip'}
+user = {
+    "username": ADMIN_USERNAME, 
+    "password": ADMIN_PASSWORD
+}
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
@@ -37,13 +41,13 @@ def allowed_file(filename):
 def start():
 
     if request.method == 'POST':
-        session['username'] = request.form['uname']
-        # uname = request.values.get('uname')
+        username = request.form['uname']
         psw = request.values.get('psw')
         login_type = request.form.getlist('checkbox')
 
-        if session['username'] == ADMIN_USERNAME and psw == ADMIN_PASSWORD:
-                return render_template('home.html')
+        if username == user['username'] and psw == user['password']:
+            session['user'] = username
+            return redirect('/home')
 
         else:
             return render_template('login.html', error='Invalid username or password')
@@ -52,8 +56,10 @@ def start():
 
 @app.route('/home', methods = ['GET', 'POST'])
 def home():
+    if('user' in session and session['user'] == user['username']):
+        return render_template('home.html')
 
-    return render_template('home.html') 
+    return render_template('login.html') 
 
 
 @app.route('/project', methods=['GET', 'POST'])
@@ -105,9 +111,8 @@ def get_project_details():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 extract_zip(f'uploads/{filename}')
-                # gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
-                subprocess.call(["./cr_deploy.sh"])
-
+                gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
+                subprocess.call(["./cr_deploy.sh project"])
                 return render_template('form.html')
                 # return redirect(url_for('download_file', name=filename))
             else:
@@ -127,13 +132,10 @@ def view_all_projects():
 
     return render_template('view_all.html', projects = result)
 
-@app.route('/ping')
-def ping():
+@app.route('/signup', methods = ['GET', 'POST'])
+def signup():
 
-    result = {
-        "ping"  : "pong"
-    }
-    return result
+    return render_template('sign_up.html')
 
 
 if __name__== "__main__":

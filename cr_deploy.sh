@@ -12,7 +12,7 @@ gcloud artifacts repositories \
 
 # Get project ID
 export PROJECT=$(gcloud info --format='value(config.project)')
-
+echo $1
 cd uploads/
 FOLDER=$(ls -td -- */ | head -n 1)
 cd $FOLDER
