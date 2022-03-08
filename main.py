@@ -3,7 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-path = '/home/ishita/proj/integrated-project-platform/uploads'
+path = './uploads'
 os.chdir(path)
 
 student_files = [doc for doc in os.listdir() if doc.endswith('.py')]
