@@ -5,8 +5,9 @@ from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 import gcp_upload
-from utils import get_prev_id, display_all_projects
+from utils import get_prev_id, display_all_projects, extract_zip
 import subprocess
+
 
 load_dotenv()
 
@@ -114,6 +115,7 @@ def get_project_details():
 
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                extract_zip(f'uploads/{filename}')
                 gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
 
                 return render_template('form.html')
