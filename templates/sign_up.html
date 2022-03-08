@@ -147,14 +147,19 @@
 
 <body>
     <form action="/" method="post" class="login">
-        <h1 style="padding-left: 130px; color:#151D3B ;"><i class="fa-solid fa-user"></i> Sign Up</h1>
+        <h1 style="padding-left: 120px; color:#151D3B ;"><i class="fa-solid fa-user"></i> Sign Up</h1>
 
         <label for="uname"><b>AICTE ID</b></label>
         <input type="uname" id="uname" name="uname" placeholder="Username">
 
+        <label for="cn"><b>College Name</b></label>
+        <input type="col_name" id="col_name" name="cn" placeholder="College Name" required>
+
+        <label for="eid"><b>Email ID</b></label>
+        <input type="email" id="eid" name="eid" placeholder="Email ID" required>
+
         <label for="psw"><b>Password</b></label>
         <input type="password" id="password" name="psw" placeholder="password" required>
-
 
         <button onclick="location.href = 'frontpage.html';" id="myButton" class="float-left submit-button">Sign In</button>
 
