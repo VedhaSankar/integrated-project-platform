@@ -28,3 +28,6 @@ gcloud builds submit --tag \
 
 # Run image on CR
 gcloud run deploy $IMAGE_NAME --port=5003 --allow-unauthenticated --image us-central1-docker.pkg.dev/$PROJECT/project-images/$IMAGE_NAME:latest
+
+SERVICE_URL=$(gcloud run services list | grep testing)
+echo $SERVICE_URL > /home/vedha/code/fries/hackathon/integrated-project-platform/services_url.txt  

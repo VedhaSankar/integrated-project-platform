@@ -92,16 +92,13 @@ def get_project_details():
         print(x)
 
         if request.method == 'POST':
-        # check if the post request has the file part
+
             if 'file' not in request.files:
 
                 flash('No file part')
                 return redirect(request.url)
 
             file = request.files['file']
-
-            # If the user does not select a file, the browser submits an
-            # empty file without a filename.
 
             if file.filename == '':
 
@@ -113,11 +110,9 @@ def get_project_details():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 extract_zip(f'uploads/{filename}')
-                # gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
+                gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
                 subprocess.call(["./cr_deploy.sh"])
-                print("yolo")
                 return render_template('form.html')
-                # return redirect(url_for('download_file', name=filename))
             else:
                 flash('Allowed file type is .zip')
                 return redirect(request.url)
