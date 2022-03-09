@@ -41,6 +41,72 @@ new_collection = database[collection_name]
 # print ("total docs:", len(ids))
 
 
+import pymongo
+from pymongo import MongoClient
+# import pymongo.errors as pymon_err
+from dotenv import load_dotenv
+import os
+from zipfile import ZipFile
+
+
+load_dotenv()
+
+MONGO_URI = os.environ.get('MONGO_URI')
+
+# creating a MongoClient object  
+client = MongoClient(MONGO_URI)  
+
+# accessing the database  
+DB_NAME = 'prohost'
+database = client[DB_NAME]
+
+
+def display_all_projects():
+    
+    
+    list_of_projects = []
+
+    collection = database['project_details']
+    projects = collection.find({})
+        
+
+    for project in projects:
+        list_of_projects.append(project)
+        
+
+    # return list_of_projects
+    final_list=[]
+    for dict in list_of_projects:
+        for key in dict:
+            if key=="project_string":
+                final_list.append(dict[key])
+            else:
+                continue
+    # print(len(final_list))
+    return final_list
+    # print(list_of_projects)
+
+
+
+
+# def main():
+
+#     # get_prev_id()
+#     master_list=display_all_projects()
+#     length=
+#     print(str1)
+    
+
+
+
+master_list=display_all_projects()
+length=len(master_list)
+
+    
+# if __name__ == '__main__':  
+#     main()
+
+
 
 def check_similarity(cnt_1, cnt_2):
 
@@ -56,16 +122,12 @@ def check_similarity(cnt_1, cnt_2):
     print(main_doc.similarity(search_doc))
 
 def test():
-
-    cnt_1 = '''
-    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud.
-    '''
-
-    cnt_2 = '''
-    Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) Cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster.
-    '''
     
-    check_similarity(cnt_1, cnt_2)
+    cnt_1 = master_list[length-1]
+
+    for i in range(0,length-1):
+        cnt_2=master_list[i]
+        check_similarity(cnt_1, cnt_2)
     
 if __name__ == '__main__':
 
