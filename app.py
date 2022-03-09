@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 import gcp_upload
-from utils import get_prev_id, display_all_projects, extract_zip
+from utils import get_prev_id, display_all_projects, extract_zip, get_service_url
 import subprocess
 
 
@@ -72,7 +72,6 @@ def get_project_details():
         email               = request.values.get('email')
         resource_link       = request.values.get('resource_link')
         github_link         = request.values.get('github_link')
-        app_name            = request.values.get('app_name')
 
         collection_name = 'project_details'
 
@@ -112,7 +111,9 @@ def get_project_details():
                 extract_zip(f'uploads/{filename}')
                 gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
                 subprocess.call(["./cr_deploy.sh"])
-                return render_template('form.html')
+                service_url = get_service_url()
+                return render_template('form.html', service_url=service_url)
+
             else:
                 flash('Allowed file type is .zip')
                 return redirect(request.url)

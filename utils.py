@@ -48,13 +48,21 @@ def display_all_projects():
 def extract_zip(file_name):
     with ZipFile(file_name, 'r') as zip:
         zip.extractall('uploads')
-        
+
+def get_service_url():
+
+    # reading a text file
+    with open('services_url.txt', 'r') as f:
+        service_url = f.read().split(' ')[3]
+
+    return service_url
 
 def main():
 
     # get_prev_id()
     # display_all_projects()
-    extract_zip('uploads/mongo-docker.zip')
+    # extract_zip('uploads/mongo-docker.zip')
+    get_service_url()
 
 
 if __name__ == '__main__':  
