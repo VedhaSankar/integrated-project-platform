@@ -1,3 +1,4 @@
+from re import S
 from flask import Flask, render_template, request, flash, redirect, session
 from dotenv import load_dotenv
 import os
@@ -6,6 +7,7 @@ from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 import gcp_upload
 from utils import get_prev_id, display_all_projects
+from stringsim import s 
 
 
 load_dotenv()
@@ -65,6 +67,7 @@ def get_project_details():
         email               = request.values.get('email')
         resource_link       = request.values.get('resource_link')
         github_link         = request.values.get('github_link')
+             
 
         current_project_id = get_prev_id() + 1
 
@@ -74,12 +77,16 @@ def get_project_details():
             "project_description" : project_description,
             "email"               : email,
             "resource_link"       : resource_link,
-            "github_link"         : github_link
+            "github_link"         : github_link,
+            "project_string"      : s
         }
 
         collection_name = 'project_details'
+
         new_collection = database[collection_name]
+
         x = new_collection.insert_one(project_dict)
+
         print(x)
 
         # if 'files[]' not in request.files:
