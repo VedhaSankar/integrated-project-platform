@@ -3,3 +3,4 @@ pymongo
 flask
 python-dotenv
 google-cloud-storage
+rq
