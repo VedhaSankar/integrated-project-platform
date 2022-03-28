@@ -52,7 +52,7 @@ def extract_zip(file_name):
 def get_service_url():
 
     # reading a text file
-    with open('services_url.txt', 'r') as f:
+    with open('service_url.txt', 'r') as f:
         service_url = f.read().split(' ')[3]
 
     return service_url

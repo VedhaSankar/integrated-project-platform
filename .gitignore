@@ -12,3 +12,4 @@ __pycache__/
 # Ignore
 prohost_sa.json
 uploads/*
+service_url.txt

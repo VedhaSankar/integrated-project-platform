@@ -101,7 +101,6 @@ def get_project_details():
             if 'file' not in request.files:
 
                 flash('No file part')
-                print("1")
                 return redirect(request.url)
 
             file = request.files['file']
@@ -116,15 +115,11 @@ def get_project_details():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 extract_zip(f'uploads/{filename}')
-                print("4")
                 proc = mp.Process(target = gcp_upload.upload_blob, args = (f'uploads/{filename}', f'project_{current_project_id}/{filename}' ))
                 proc.start()
                 # gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
-                print("3")
                 subprocess.call(["./cr_deploy.sh"])
                 service_url = get_service_url()
-                print("2")
-                print(service_url)
                 return render_template('form.html', service_url = service_url)    
 
             else:

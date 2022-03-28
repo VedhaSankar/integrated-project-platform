@@ -31,6 +31,6 @@ gcloud run deploy $IMAGE_NAME --port=5003 --allow-unauthenticated --image us-cen
 
 
 SERVICE_URL=$(gcloud run services list | grep testing)
-echo $SERVICE_URL > /home/vedha/code/fries/integrated-project-platform/services_url.txt  
+echo $SERVICE_URL > /home/vedha/code/fries/integrated-project-platform/service_url.txt  
 
 echo "Deployed Project"
