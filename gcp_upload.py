@@ -32,7 +32,7 @@ def upload_blob(source_file_name, destination_blob_name):
 
 def main():
 
-    upload_blob('uploads/mongo-docker.zip', 'uploads/mongo-docker.zip')
+    upload_blob('/home/vedha/Documents/mongo-docker.zip', 'testing/mongo-docker.zip')
 
 if __name__ == "__main__":
 
