@@ -291,47 +291,97 @@
         line-height: 1em;
         transform-origin: 0 0;
       }
+
+      /* STYLE */
+
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+      /* * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #e8efff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+      } */
+
+      .like__btn {
+        padding: 10px 15px;
+        background: black;
+        font-size: 18px;
+        font-family: "Open Sans", sans-serif;
+        border-radius: 5px;
+        color: #e8efff;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* STYLE */
     </style>
   </head>
 
   <body>
     <h1 class="ml10">
-        <span class="text-wrapper">
-          <span class="letters" style="padding-left: 31rem;">Project Details</span>
-        </span>
-      </h1>
-  
-     <br /><br /><br /><br />
+      <span class="text-wrapper">
+        <span class="letters" style="padding-left: 31rem">Project Details</span>
+      </span>
+    </h1>
 
-    Project Name: {{result.project_name}} <br /><br />
+    <br /><br /><br /><br />
+    <div style="padding-left:9rem">
+    <b>Project Name: {{result.project_name}} <br /><br /> </b>
     Project Description: {{result.project_description}}<br /><br />
     Developer Email: {{result.email}}<br /><br />
     Resource Links: {{result.resource_link}}<br /><br />
     GitHub Links: {{result.github_link}}<br /><br />
-
-    <div style="padding-left: 50rem;">
-    <div class="wrapper" style="margin-top:-17rem; padding-left: -10rem;">
-      <div class="task-input" style="padding-left: -10rem;">
-        <img
-          src="../static/assets/img/icon.png"
-          alt="icon"
-          width="27px"
-          height="27px"
-        />
-        <input type="text" placeholder="Add a new task" />
-      </div>
-      <div class="controls">
-        <div class="filters">
-          <span class="active" id="all">All</span>
-          <span id="pending">Pending</span>
-          <span id="completed">Completed</span>
-        </div>
-        <button class="clear-btn">Clear All</button>
-      </div>
-      <ul class="task-box"></ul>
     </div>
-</div>
+
+    <div style="padding-left: 50rem">
+      <div class="wrapper" style="margin-top: -17rem; padding-left: -10rem">
+        <div class="task-input" style="padding-left: -10rem">
+          <img
+            src="../static/assets/img/icon.png"
+            alt="icon"
+            width="27px"
+            height="27px"
+          />
+          <input type="text" placeholder="Add a new task" />
+
+        </div style="padding-left:20rem">
+        <div class="controls">
+          <div class="filters">
+            <span class="active" id="all">All</span>
+            <span id="pending">Pending</span>
+            <span id="completed">Completed</span>
+          </div>
+          <button class="clear-btn">Clear All</button>
+        </div>
+        <ul class="task-box"></ul>
+      </div>
+    </div>
+
+    <div style="padding-left:66rem; margin-top:-5rem;">
+    <button class="like__btn" >
+      <span id="icon"><i class="far fa-thumbs-up"></i></span>
+      <span id="count">0</span> Likes
+      
+
+    </button>
+
+    <button class="like__btn" >
+        <span id="icon"><i class="far fa-thumbs-up"></i></span>
+        <span id="count">40</span> Views
+        
+  
+      </button>
+    </div>
     
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
     <script>
@@ -471,6 +521,26 @@
           easing: "easeOutExpo",
           delay: 1000,
         });
+
+      //  Like button //
+
+      const likeBtn = document.querySelector(".like__btn");
+      let likeIcon = document.querySelector("#icon"),
+        count = document.querySelector("#count");
+
+      let clicked = false;
+
+      likeBtn.addEventListener("click", () => {
+        if (!clicked) {
+          clicked = true;
+          likeIcon.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
+          count.textContent++;
+        } else {
+          clicked = false;
+          likeIcon.innerHTML = `<i class="far fa-thumbs-up"></i>`;
+          count.textContent--;
+        }
+      });
     </script>
   </body>
 </html>
