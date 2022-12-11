@@ -97,35 +97,41 @@ def get_project_details():
         x = new_collection.insert_one(project_dict)
         print(x)
 
-        if request.method == 'POST':
+        print(project_name)
 
-            if 'file' not in request.files:
+        service_url = "testing.com"
 
-                flash('No file part')
-                return redirect(request.url)
+        return render_template('form.html', service_url = service_url)    
 
-            file = request.files['file']
+        # if request.method == 'POST':
 
-            if file.filename == '':
+        #     if 'file' not in request.files:
 
-                flash('No selected file')
-                return redirect(request.url)
+        #         flash('No file part')
+        #         return redirect(request.url)
 
-            if file and allowed_file(file.filename):
+        #     file = request.files['file']
 
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                extract_zip(f'uploads/{filename}')
-                proc = mp.Process(target = gcp_upload.upload_blob, args = (f'uploads/{filename}', f'project_{current_project_id}/{filename}' ))
-                proc.start()
-                # gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
-                subprocess.call(["./cr_deploy.sh"])
-                service_url = get_service_url()
-                return render_template('form.html', service_url = service_url)    
+        #     if file.filename == '':
 
-            else:
-                flash('Allowed file type is .zip')
-                return redirect(request.url)
+        #         flash('No selected file')
+        #         return redirect(request.url)
+
+        #     if file and allowed_file(file.filename):
+
+        #         filename = secure_filename(file.filename)
+        #         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        #         extract_zip(f'uploads/{filename}')
+        #         proc = mp.Process(target = gcp_upload.upload_blob, args = (f'uploads/{filename}', f'project_{current_project_id}/{filename}' ))
+        #         proc.start()
+        #         # gcp_upload.upload_blob(f'uploads/{filename}', f'project_{current_project_id}/{filename}')
+        #         subprocess.call(["./cr_deploy.sh"])
+        #         service_url = get_service_url()
+        #         return render_template('form.html', service_url = service_url)    
+
+        #     else:
+        #         flash('Allowed file type is .zip')
+        #         return redirect(request.url)
 
     return render_template('form.html')
 
