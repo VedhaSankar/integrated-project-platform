@@ -245,6 +245,7 @@
 
     .fetch_details {
       padding-left: 7%;
+      padding-right: 40%;
       font-size: 20px;
       color: #020000;
       font-family: Georgia, 'Times New Roman', Times, serif;
@@ -334,13 +335,13 @@
       cursor: pointer;
     }
 
-    a {
+    /* a {
       display: inline-block;
       width: 200px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
+    } */
 
     /* STYLE */
   </style>
@@ -359,7 +360,7 @@
     <b>Project Description:</b> {{result.project_description}}<br /><br />
     <b>Developer Email:</b> {{result.email}}<br /><br />
     <b>Resource Links:</b> <a href="{{result.resource_link}}">{{result.resource_link}}</a><br /><br />
-    <b>GitHub Links:</b><a>{{result.github_link}}</a> <br /><br />
+    <b>GitHub Links:</b><a href="{{result.github_link}}">{{result.github_link}}</a> <br /><br />
   </div>
 
   <div style="padding-left: 50rem">
@@ -381,7 +382,7 @@
     </div>
   </div>
 
-  <div style="padding-left:66rem; margin-top:-5rem;">
+  <div style="padding-left:79rem; margin-top:-5rem;">
     <button class="like__btn">
       <span id="icon"><i class="far fa-thumbs-up"></i></span>
       <span id="count">23</span> Likes
