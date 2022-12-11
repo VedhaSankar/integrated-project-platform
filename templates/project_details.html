@@ -26,7 +26,7 @@
       /* background: linear-gradient(90deg, rgba(1,171,205,1) 0%, rgba(14,90,168,1) 50%, rgba(55,49,159,1) 100%); */
       background-image: linear-gradient(109.6deg, rgba(48, 207, 208, 1) 11.2%, rgba(51, 8, 103, 1) 92.5%);
 
-      
+
     }
 
     ::selection {
@@ -334,6 +334,11 @@
       cursor: pointer;
     }
 
+    a {
+      width: 15rem;
+      overflow: hidden;
+    }
+
     /* STYLE */
   </style>
 </head>
@@ -350,8 +355,8 @@
     <b>Project Name:</b> {{result.project_name}} <br /><br />
     <b>Project Description:</b> {{result.project_description}}<br /><br />
     <b>Developer Email:</b> {{result.email}}<br /><br />
-    <b>Resource Links:</b> {{result.resource_link}}<br /><br />
-    <b>GitHub Links:</b> {{result.github_link}}<br /><br />
+    <b>Resource Links:</b> <a>{{result.resource_link}}</a><br /><br />
+    <b>GitHub Links:</b><a>{{result.github_link}}</a> <br /><br />
   </div>
 
   <div style="padding-left: 50rem">

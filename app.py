@@ -199,4 +199,5 @@ def project_details(project_id):
 
 
 if __name__== "__main__":
-    app.run(host = "0.0.0.0", debug = True, port = PORT, use_reloader=False)
+    # app.run(host = "0.0.0.0", debug = True, port = PORT, use_reloader=False)
+    app.run(host = "0.0.0.0", debug = True, port = PORT, use_reloader=True)
