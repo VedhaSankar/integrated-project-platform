@@ -97,9 +97,9 @@ def get_project_details():
         x = new_collection.insert_one(project_dict)
         print(x)
 
-        print(project_name)
+        project_name = project_name.replace(" ", "-").lower()
 
-        service_url = "testing.com"
+        service_url = f"www.{project_name}.com"
 
         return render_template('form.html', service_url = service_url)    
 
