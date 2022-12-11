@@ -335,8 +335,11 @@
     }
 
     a {
-      width: 15rem;
+      display: inline-block;
+      width: 200px;
+      white-space: nowrap;
       overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* STYLE */
@@ -355,7 +358,7 @@
     <b>Project Name:</b> {{result.project_name}} <br /><br />
     <b>Project Description:</b> {{result.project_description}}<br /><br />
     <b>Developer Email:</b> {{result.email}}<br /><br />
-    <b>Resource Links:</b> <a>{{result.resource_link}}</a><br /><br />
+    <b>Resource Links:</b> <a href="{{result.resource_link}}"></a><br /><br />
     <b>GitHub Links:</b><a>{{result.github_link}}</a> <br /><br />
   </div>
 
