@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 import gcp_upload
-from utils import get_prev_id, display_all_projects, extract_zip, get_service_url
+from utils import get_prev_id, display_all_projects, extract_zip, get_service_url, get_project_details_using_id
 import subprocess
 import multiprocessing as mp
 from queue import Queue
@@ -170,6 +170,19 @@ def signup():
         print(x)
 
     return render_template('sign_up.html')
+
+
+
+@app.route('/project-details/<project_id>', methods = ['GET', 'POST'])
+def project_details(project_id):
+
+    # project_id = request.args.get['project_id']
+
+    required_project_details = get_project_details_using_id(project_id)[0]
+    print(required_project_details)
+
+    return render_template('project_details.html', result = required_project_details)
+
 
 
 if __name__== "__main__":

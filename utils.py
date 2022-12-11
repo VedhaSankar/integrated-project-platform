@@ -57,12 +57,32 @@ def get_service_url():
 
     return service_url
 
+
+def get_project_details_using_id(project_id):
+
+    project_id = int(project_id)
+
+    database = client['prohost']
+    col = database.project_details
+
+    res = []
+
+    for x in col.find({"_id":project_id}):
+
+        del x["_id"]
+        res.append(x)
+
+    return res
+
 def main():
 
     # get_prev_id()
     # display_all_projects()
     # extract_zip('uploads/mongo-docker.zip')
-    get_service_url()
+    # get_service_url()
+    # get_project_details_using_id(32)
+    get_project_details_using_id(32)
+    pass
 
 
 if __name__ == '__main__':  
