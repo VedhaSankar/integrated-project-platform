@@ -68,6 +68,13 @@ def home():
 
     return render_template('login.html') 
 
+@app.route('/dashboard', methods = ['GET', 'POST'])
+def get_dashboard():
+    if('user' in session and session['user'] == user['username']):
+        return render_template('dash.html')
+
+    return render_template('login.html') 
+
 
 @app.route('/project', methods=['GET', 'POST'])
 def get_project_details():

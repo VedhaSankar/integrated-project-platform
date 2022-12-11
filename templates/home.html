@@ -26,7 +26,8 @@
 
             <form class="search-container">
                 <input type="text" id="search-bar" placeholder="Search...">
-                <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+                <a href="#"><img class="search-icon"
+                        src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
             </form>
 
 
@@ -36,7 +37,7 @@
                         <a href="#home" class="nav__link active-link">Home</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#discover" class="nav__link">Projects</a>
+                        <a href="{{ url_for('view_all_projects') }}" class="nav__link">Projects</a>
                     </li>
                     <li class="nav__item">
                         <a href="#place" class="nav__link">Profile</a>
@@ -69,13 +70,13 @@
                 <div class="home__data">
                     <span class="home__data-subtitle"><b>Host your projects here.</b></span>
                     <h1 class="home__data-title">Explore the <br> best <b>Trending <br> Projects</b></h1>
-                    <a href="dash.html" class="button" style="  border-top-left-radius:25px;  
+                    <a href="{{ url_for('get_dashboard') }}" class="button" style="  border-top-left-radius:25px;  
                     border-top-right-radius:25px;  
                     border-bottom-right-radius:25px;  
                     border-bottom-left-radius:25px; 
                     border-style: outset;">Dashboard</a>
 
-                        <!-- <button class="GFG" 
+                    <!-- <button class="GFG" 
                         onclick="window.location.href = 'https://ide.geeksforgeeks.org';">
                             Click Here
                         </button> -->
@@ -116,7 +117,8 @@
                 <div class="about__data">
                     <h2 class="section__title about__title">More information about the best deployed projects</h2>
                     <p class="about__description">
-                        Deploy your project by filling a few details and description regarding your idea and mention the team members as well. You're one step away from deploying your project!
+                        Deploy your project by filling a few details and description regarding your idea and mention the
+                        team members as well. You're one step away from deploying your project!
                     </p>
                     <!-- <input type="file" name="myfile" /> -->
                     <a href="{{ url_for('get_project_details') }}" class="button" style=" border-top-left-radius: 25px;
@@ -145,7 +147,7 @@
 
         <!--==================== PROJECT DISPLAY ====================-->
         <section class="place section" id="place">
-            <h2 class="section__title"><b>PROJECTS  GALLERY</b></h2>
+            <h2 class="section__title"><b>PROJECTS GALLERY</b></h2>
 
             <div class="place__container container grid">
                 <!--==================== PROJECT 1 ====================-->
@@ -287,7 +289,8 @@
             <div class="subscribe__bg">
                 <div class="subscribe__container container">
                     <h2 class="section__title subscribe__title">Send a mail if <br> you have any queries/concerns</h2>
-                    <p class="subscribe__description"> Send a mail if you want to get further notifications regarding Prohost ProHost.
+                    <p class="subscribe__description"> Send a mail if you want to get further notifications regarding
+                        Prohost ProHost.
                     </p>
 
                     <form action="" class="subscribe__form">
@@ -302,14 +305,15 @@
         </section>
 
         <!--==================== COLLEGES ====================-->
-    
+
     </main>
 
     <!--==================== FOOTER ====================-->
     <footer class="footer section">
         <div class="footer__container container grid">
             <div class="footer__rights"><b>
-                <p class="footer__copy">&#169; 2022 ProHost. All rights reserved.</p></b>
+                    <p class="footer__copy">&#169; 2022 ProHost. All rights reserved.</p>
+                </b>
                 <div class="footer__terms">
                     <a href="#" class="footer__terms-link"><b>Terms & Agreements</a></b>
                     <a href="#" class="footer__terms-link"><b>Privacy Policy</a></b>
